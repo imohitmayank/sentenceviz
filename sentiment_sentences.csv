@@ -1,0 +1,21 @@
+Sentence,Sentiment Class
+I love my job!,Positive
+This food is delicious.,Positive
+I am having a great day.,Positive
+I am so excited for the weekend.,Positive
+The weather is terrible today.,Negative
+I hate when this happens.,Negative
+I am feeling very anxious.,Negative
+I am so disappointed in you.,Negative
+I am happy to see you.,Positive
+I had a great time at the party.,Positive
+I am so tired of this.,Negative
+I am feeling very frustrated.,Negative
+This movie was terrible.,Negative
+I am feeling very sad.,Negative
+I am so grateful for your help.,Positive
+I had a terrible day at work.,Negative
+I am feeling very angry.,Negative
+I am thrilled about the news.,Positive
+I am so excited about the trip.,Positive
+I am feeling very depressed.,Negative
