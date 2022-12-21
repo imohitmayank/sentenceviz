@@ -1,4 +1,4 @@
-sentence-transformers==2.2.0
+sentence-transformers
 streamlit==1.8.1
 plotly==5.11.0
 plotly-express==0.4.1
