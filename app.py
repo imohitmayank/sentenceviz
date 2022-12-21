@@ -17,6 +17,7 @@ import plotly.express as px
 # DR
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+import umap.umap_ as umap
 
 ## Init
 ## ----------------
@@ -58,7 +59,6 @@ supported_models = ['all-MiniLM-L6-v2', 'paraphrase-albert-small-v2', 'paraphras
 selected_model_option = st.sidebar.selectbox("Select Model:", supported_models)
 text_col_name = st.sidebar.text_input("Text column to embed")
 if len(text_col_name) > 0 and df is not None:
-    print("text_col_name -->", text_col_name)
     df[text_col_name] = df[text_col_name].str.wrap(30)
     df[text_col_name] = df[text_col_name].apply(lambda x: x.replace('\n', '<br>'))
     progress = st.empty()
@@ -69,7 +69,7 @@ if len(text_col_name) > 0 and df is not None:
 
 ## Visualization
 st.sidebar.markdown("## Visualization")
-dr_algo = st.sidebar.selectbox("Dimensionality Reduction Algorithm", ('PCA', 't-SNE'))
+dr_algo = st.sidebar.selectbox("Dimensionality Reduction Algorithm", ('PCA', 't-SNE', 'UMAP'))
 color_col = st.sidebar.text_input("Color using this col")
 if len(color_col.strip()) == 0:
     color_col = None
@@ -82,6 +82,11 @@ if st.sidebar.button('Plot!'):
     elif dr_algo == 't-SNE':
         tsne = TSNE(n_components=2)
         reduced_embeddings = tsne.fit_transform(embeddings)
+    elif dr_algo == 'UMAP':
+        reducer = umap.UMAP(random_state=42)
+        reducer.fit(embeddings)
+        reduced_embeddings = reducer.transform(embeddings)
+
     
     # modify the df
     # df['complete_embeddings'] = embeddings

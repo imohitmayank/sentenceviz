@@ -4,3 +4,4 @@ plotly==5.11.0
 plotly-express==0.4.1
 scikit-learn==1.0.2
 pandas==1.4.2
+umap-learn==0.5.3
